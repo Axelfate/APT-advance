@@ -72,25 +72,24 @@ class TareaSearch extends Tarea
              $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
             ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
             ->andFilterWhere(['like','ubicacion',$this->ubicacion])
-            ->andFilterWhere(['=','estado',1])
-            ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
+            ->andFilterWhere(['!=','estado',5]);
+            //->orFilterWhere(['=','estado',$this->estado])
         }
         elseif(yii::$app->user->identity->cargo===3){
             $this->asignado_a=yii::$app->user->identity->idUsuario;
              $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
             ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
-            ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
+            ->andFilterWhere(['!=','estado',5]);
+            //->orFilterWhere(['=','estado',$this->estado])
         }
         if (yii::$app->user->identity->cargo===1) {
            $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
             ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
-            ->andFilterWhere(['=','estado',1])
-            ->orFilterWhere(['=','estado',4])
-            ->orFilterWhere(['=','estado',6])            
-            ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
+            //->andFilterWhere(['=','estado',1])
+            //->orFilterWhere(['=','estado',4])
+            //->orFilterWhere(['=','estado',6])
+            ->andFilterWhere(['!=','estado',5])
+            ->orFilterWhere(['=','estado',$this->estado]);
         }
 
         //$model->isNewRecord ? 'Create' : 'Update'

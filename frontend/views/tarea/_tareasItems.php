@@ -21,18 +21,17 @@ use \kartik\editable\Editable;
         'summary'=>'', 
         //'filterModel' => $searchModel,
         'columns' => [
-                    //['class' => 'kartik\grid\DataColumn',],
-
                     'descripcion_larga',
                     [
                         'class'=>'\kartik\grid\EditableColumn',
                         'attribute'=>'notas',
                         'editableOptions' => [
+                                        'inputType'=>Editable::INPUT_TEXTAREA,
+                                        'options' => ['class'=>'form-control'],
+                                        //'asPopover' => false,
                                       'formOptions' => ['action' => ['/tarea/editnota']],
                                     ]
-                    ],    
-
-            
+                    ],
                 ],
             ]); 
         ?>

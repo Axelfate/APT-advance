@@ -47,6 +47,7 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'descripcion_corta',
+        'filter' => '',
     ],
     [
         'attribute' => 'ubicacion',

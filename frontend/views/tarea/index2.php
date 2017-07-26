@@ -29,13 +29,13 @@ CrudAsset::register($this);
                 $r2=diferenciaDias($model->fecha_propuesta_fin, $model->fecha_inicio);
                 $r3=(($r2-$r1)*100)/$r2;
                 $r3=ceil($r3);
-                if ($r3<=33 and $r3>0) {
+                if ($r3<=69 and $r3>0) {
                     return ['style' => 'background-color:white'];
                 }
-                if ($r3>=34 and $r3<=66) {
+                if ($r3>=70 and $r3<=99) {
                   return ['style' => 'background-color:#FFB516'];
                 }
-                if ($r3>=67) {
+                if ($r3>=100) {
                   return ['style' => 'background-color:#EC4B28'];
                 }
             },

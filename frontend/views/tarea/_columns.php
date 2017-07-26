@@ -105,15 +105,12 @@ return [
                 return $est->status;
         },
         'filter' => ArrayHelper::map(Status::find()->all(),'idStatus','status'),
-
         'editableOptions' => [
                                 //'format'=>Editable::FORMAT_BUTTON,
                                 'inputType'=>Editable::INPUT_DROPDOWN_LIST,
                                 'data' => [1 => 'Iniciado', 2=>'Cancelado', 5 => 'Concluido', 6 => 'Revisión'],
                                 'options' => ['class'=>'form-control'], //, 'prompt'=>'status...'],
                                 'displayValueConfig'=> [
-                                    //'Iniciado' => '<i class="glyphicon glyphicon-remove"></i>',
-                                    //'Concluido' => '<i class="glyphicon glyphicon-ok"></i>',
                                     1 => 'Iniciado',
                                     2=>'Cancelado',
                                     5 => 'Concluido',
