@@ -10,6 +10,7 @@ use kartik\datecontrol\Module;
 use kartik\date\DatePicker;
 use kartik\editable\Editable;
 use frontend\models\Ubicacion;
+use frontend\models\TareaSearch2;
 
 return [
     [
@@ -18,7 +19,7 @@ return [
             return GridView::ROW_COLLAPSED;
         } ,
         'detail' => function($model, $key, $index, $column){
-            $searchModel = new TareaSearch();
+            $searchModel = new TareaSearch2();
             $searchModel-> idTarea = $model->idTarea;
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

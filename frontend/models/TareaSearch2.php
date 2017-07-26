@@ -10,7 +10,7 @@ use frontend\models\Tarea;
 /**
  * TareaSearch represents the model behind the search form about `frontend\models\Tarea`.
  */
-class TareaSearch extends Tarea
+class TareaSearch2 extends Tarea
 {
     /**
      * @inheritdoc
@@ -69,32 +69,28 @@ class TareaSearch extends Tarea
         if(yii::$app->user->identity->cargo===2){
             $this->departamento_asignado=yii::$app->user->identity->pertenece_departamento;
             $this->ubicacion=yii::$app->user->identity->establecimiento;
-             $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
+             /*$query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
             ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
             ->andFilterWhere(['like','ubicacion',$this->ubicacion])
             ->andFilterWhere(['=','estado',1])
             ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
+            ->orderBy(['estado'=>SORT_DESC]);*/
         }
         elseif(yii::$app->user->identity->cargo===3){
             $this->asignado_a=yii::$app->user->identity->idUsuario;
-             $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
+             /*$query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
             ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
             ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
+            ->orderBy(['estado'=>SORT_DESC]);*/
         }
-        if (yii::$app->user->identity->cargo===1) {
-           $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
-            ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
-            ->andFilterWhere(['=','estado',1])
-            ->orFilterWhere(['=','estado',4])
-            ->orFilterWhere(['=','estado',6])            
-            ->orFilterWhere(['=','estado',$this->estado])
-            ->orderBy(['estado'=>SORT_DESC]);
-        }
+        /*if (yii::$app->user->identity->cargo===1) {
+        }*/
 
         //$model->isNewRecord ? 'Create' : 'Update'
-
+        $query->andFilterWhere(['like', 'departamento_asignado', $this->departamento_asignado])
+         ->andFilterWhere(['like', 'asignado_a',$this->asignado_a])
+         ->andFilterWhere(['=','estado',$this->estado])
+         ->orderBy(['estado'=>SORT_DESC]);
 
 
         return $dataProvider;
